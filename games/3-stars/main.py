@@ -108,12 +108,12 @@ def accelerations(stars: list[Star]) -> list[pygame.Vector2]:
 def step_stars(stars: list[Star], dt: float) -> None:
     first_accelerations = accelerations(stars)
 
-    for star, accel in zip(stars, first_accelerations):
+    for star, accel in zip(stars, first_accelerations, strict=True):
         star.vel += accel * dt * 0.5
         star.pos += star.vel * dt
 
     second_accelerations = accelerations(stars)
-    for star, accel in zip(stars, second_accelerations):
+    for star, accel in zip(stars, second_accelerations, strict=True):
         star.vel += accel * dt * 0.5
         star.spin_angle = (star.spin_angle + star.spin_speed * dt) % math.tau
         star.trail.append(star.pos.copy())

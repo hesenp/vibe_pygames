@@ -146,7 +146,7 @@ def draw_background(screen: pygame.Surface, font: pygame.font.Font, show_grid: b
 
 def draw_trail(screen: pygame.Surface, points: list[pygame.Vector2], color: tuple[int, int, int]) -> None:
     if len(points) < 2:
-        return5
+        return
 
     start = max(1, len(points) - MAX_TRAIL_POINTS)
     for i in range(start, len(points)):
@@ -167,7 +167,7 @@ def draw_star(screen: pygame.Surface, star: Star) -> None:
         screen.blit(glow_surface, star.pos - pygame.Vector2(radius, radius), special_flags=pygame.BLEND_PREMULTIPLIED)
 
     pygame.draw.circle(screen, star.color, star.pos, star.radius)
-    for offset in (-0.45, 0.15, 0.58):3
+    for offset in (-0.45, 0.15, 0.58):
         angle = star.spin_angle + offset
         start = star.pos + pygame.Vector2(math.cos(angle), math.sin(angle)) * (star.radius * 0.22)
         end = star.pos + pygame.Vector2(math.cos(angle), math.sin(angle)) * (star.radius * 0.82)
