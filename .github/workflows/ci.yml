@@ -30,7 +30,7 @@ jobs:
           mypy games/2-stars/main.py
           mypy games/3-stars/main.py
       - name: Pytest
-        run: pytest
+        run: python -m pytest
       - name: Smoke-test each game (headless)
         env:
           SDL_VIDEODRIVER: dummy

@@ -31,3 +31,13 @@ For a quick non-window smoke test:
 ```bash
 python3 games/3-stars/main.py --headless --frames 5
 ```
+
+## Implementation notes
+
+Shared rendering helpers (background, glow, trails, main loop, hotkeys)
+live in `games/_shared/star_common.py`. This file contains only the
+three-star specifics: initial conditions, the N-body integrator, the
+chaos-mode reset hotkey, and the equilateral-triangle overlay.
+
+For larger N, see `games/4-nbody`, which ports the same gravitational
+formulation to vectorised PyTorch tensors on the GPU.
